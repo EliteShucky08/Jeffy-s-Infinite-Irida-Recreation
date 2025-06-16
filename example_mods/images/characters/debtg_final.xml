@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="debtg final.png">
+<SubTexture name="debtg final idle0000" x="1225" y="474" width="424" height="469" frameX="-34" frameY="-171" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final idle0001" x="0" y="1022" width="424" height="467" frameX="-34" frameY="-173" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final idle0002" x="885" y="1022" width="424" height="465" frameX="-34" frameY="-175" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final idle0003" x="493" y="1489" width="431" height="457" frameX="-28" frameY="-183" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final idle0004" x="924" y="1489" width="440" height="450" frameX="-19" frameY="-190" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final idle0005" x="1674" y="929" width="434" height="459" frameX="-25" frameY="-181" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final idle0006" x="1674" y="465" width="424" height="464" frameX="-34" frameY="-176" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final left0000" x="1225" y="0" width="449" height="474" frameX="0" frameY="-166" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final left0001" x="0" y="546" width="448" height="476" frameX="-4" frameY="-164" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final left0002" x="448" y="546" width="467" height="475" frameX="0" frameY="-165" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final down0000" x="0" y="1953" width="460" height="392" frameX="-15" frameY="-248" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final down0001" x="2156" y="0" width="459" height="414" frameX="-15" frameY="-226" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final down0002" x="1364" y="1489" width="446" height="431" frameX="-22" frameY="-209" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final up0000" x="0" y="0" width="388" height="546" frameX="-56" frameY="-94" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final up0001" x="388" y="0" width="409" height="534" frameX="-39" frameY="-106" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final up0002" x="797" y="0" width="428" height="520" frameX="-24" frameY="-120" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final right0000" x="0" y="1489" width="493" height="464" frameX="-33" frameY="-176" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final right0001" x="1674" y="0" width="482" height="465" frameX="-33" frameY="-175" frameWidth="640" frameHeight="640" />
+<SubTexture name="debtg final right0002" x="424" y="1022" width="461" height="467" frameX="-33" frameY="-173" frameWidth="640" frameHeight="640" />
+</TextureAtlas>
