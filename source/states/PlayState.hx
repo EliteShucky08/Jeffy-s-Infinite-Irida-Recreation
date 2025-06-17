@@ -234,6 +234,7 @@ class PlayState extends MusicBeatState
 	public var boyfriendCameraOffset:Array<Float> = null;
 	public var opponentCameraOffset:Array<Float> = null;
 	public var girlfriendCameraOffset:Array<Float> = null;
+	var introVideoPlayed:Bool = false;
 
 	#if DISCORD_ALLOWED
 	// Discord RPC variables
@@ -391,6 +392,7 @@ class PlayState extends MusicBeatState
 			case 'phillyBlazin': new PhillyBlazin();	//Weekend 1 - Blazin
 		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
+		
 
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		luaDebugGroup = new FlxTypedGroup<psychlua.DebugLuaText>();

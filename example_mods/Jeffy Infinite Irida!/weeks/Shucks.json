@@ -1,0 +1,32 @@
+{
+	"storyName": "shucks",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "e",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Shucks!",
+			"DETG",
+			[
+				200,
+				100,
+				0
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "shucks",
+	"hiddenUntilUnlocked": false
+}

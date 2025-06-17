@@ -1,0 +1,31 @@
+{
+	"animations": [
+		{
+			"offsets": [749, 446],
+			"loop": false,
+			"fps": 15,
+			"anim": "idle",
+			"indices": [],
+			"name": "."
+		},
+		{
+			"loop": false,
+			"offsets": [749, 446],
+			"anim": "yap",
+			"fps": 15,
+			"name": "anim",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/Marvin Scary",
+	"position": [0, 350],
+	"healthicon": "Marvin",
+	"flip_x": true,
+	"healthbar_colors": [255, 0, 0],
+	"camera_position": [140, -30],
+	"sing_duration": 4,
+	"scale": 0.399999999999999,
+	"_editor_isPlayer": true
+}

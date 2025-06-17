@@ -1,0 +1,8 @@
+Value 1 = Video name
+Value 2 = nothing
+
+(use only mp4 and dont put the extension on the value1) 
+
+You can use 'example' to test the script (only if you copied the videos folder)
+
+SCRIPT MADE BY SHOTA-ANON!
