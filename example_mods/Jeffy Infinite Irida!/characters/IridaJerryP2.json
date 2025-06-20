@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [10, 0],
+			"anim": "idle",
+			"fps": 24,
+			"name": "jimmy_idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [265, -100],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "jimmy_left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-119, -55],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "jimmy_right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-41, 181],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "jimmy_up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [67, -260],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "jimmy_down",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/Irida/jerry",
+	"position": [110, 280],
+	"healthicon": "jerry",
+	"flip_x": false,
+	"healthbar_colors": [240, 200, 0],
+	"camera_position": [-490, 170],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

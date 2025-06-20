@@ -85,10 +85,12 @@ class PauseSubState extends MusicBeatSubstate
             songRender.antialiasing = true;
             try {
                 songRender.loadGraphic(Paths.image(renderPath));
-                // Larger scale for execretion and irida
-                if (songIdLower == 'execretion' || songIdLower == 'irida') {
+                // SCALE LOGIC:
+                if (songIdLower == 'irida') {
+                    songRender.setGraphicSize(Std.int(songRender.width * 0.6));
+                } else if (songIdLower == 'execretion') {
                     songRender.setGraphicSize(Std.int(songRender.width * 1.0));
-                } else {
+                } else { // shucks
                     songRender.setGraphicSize(Std.int(songRender.width * 0.7));
                 }
                 songRender.updateHitbox();

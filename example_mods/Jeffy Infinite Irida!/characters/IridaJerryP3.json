@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [10, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle jeffy"
+		},
+		{
+			"offsets": [85, 10],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "right jeffy"
+		},
+		{
+			"offsets": [54, 22],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "left jeffy"
+		},
+		{
+			"offsets": [77, -10],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down jeffy"
+		},
+		{
+			"offsets": [57, 18],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up jeffy"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/Irida/jerryanimated",
+	"position": [70, 40],
+	"healthicon": "jerry",
+	"flip_x": true,
+	"healthbar_colors": [240, 200, 0],
+	"camera_position": [280, -310],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

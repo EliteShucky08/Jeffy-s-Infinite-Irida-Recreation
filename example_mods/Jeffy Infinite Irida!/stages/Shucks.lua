@@ -1,7 +1,7 @@
 -- =============================================================
 -- Variables
 -- =============================================================
-local sectionThresholdBeat = 3456 / 4  -- i know very unorganised but hey it works!
+local sectionThresholdBeat = 3456 / 4
 local origScoreY  
 local origScoreX  
 local txtYOffset       = 10  
@@ -10,7 +10,6 @@ local logoDisplayDur   = 4
 local targetCamX       = nil
 local targetCamY       = nil
 local arrowOrder = getObjectOrder(getPropertyFromGroup('strumLineNotes', 0, 'name'))
-
 
 -- =============================================================
 -- onCreate: Initial setup before the song starts
@@ -32,7 +31,7 @@ function onCreate()
     setScrollFactor('shuckfront', 0.8, 0.8)
     scaleObject('shuckfront', 0.75, 0.85)
 
-    makeLuaSprite('ShucksChains', 'ShucksChains', -650, -140)
+    makeLuaSprite('ShucksChains', 'ShucksChains', -600, -140)
     setScrollFactor('ShucksChains', 1, 1)
     scaleObject('ShucksChains', 0.6, 0.7)
 
@@ -125,7 +124,6 @@ function onCreate()
     setScrollFactor('momento peak', 0, 0)
 end
 
-
 -- =============================================================
 -- onCreatePost: UI and HUD adjustments
 -- =============================================================
@@ -149,23 +147,12 @@ function onCreatePost()
     setProperty('scoreTxt.color', getColorFromHex('8B0000'))
     setProperty('scoreTxt.borderColor', getColorFromHex('3E0408'))
     setTextBorder('scoreTxt', 1.5, '3E0408')
-    setProperty('scoreTxt.x', 130)
+    setProperty('scoreTxt.x', -30)
     setProperty('scoreTxt.y', 675)
-
-    -- Accuracy text (UI), initially invisible
-    makeLuaText('accuracyText', '', 650, 60, 665)
-    setTextFont('accuracyText', 'Mario Font.ttf')
-    setTextSize('accuracyText', 20)
-    setProperty('accuracyText.color', getColorFromHex('8B0000'))
-    setProperty('accuracyText.borderColor', getColorFromHex('3E0408'))
-    addLuaText('accuracyText')
-    addToGroup('uiGroup', 'accuracyText')
-    setProperty('accuracyText.alpha', 0)
 
     -- Store original Y position for scoreTxt
     origScoreY = getProperty('scoreTxt.y')
 end
-
 
 -- =============================================================
 -- onSongStart: Order HUD elements
@@ -182,7 +169,6 @@ function onSongStart()
     setProperty('iconP1.alpha',             0)
     setProperty('iconP2.alpha',             0)
 end
-
 
 -- =============================================================
 -- onEvent: Custom animation triggers
@@ -211,7 +197,6 @@ function onEvent(name, value1, value2)
     end
 end
 
-
 -- =============================================================
 -- onUpdate: Update per frame
 -- =============================================================
@@ -219,7 +204,6 @@ function onUpdate(elapsed)
     setTextString('botplayTxt', 'Yesnt')
     updateVignetteAlpha()
 end
-
 
 -- =============================================================
 -- onUpdatePost: HUD element positions and score/accuracy updates
@@ -232,24 +216,22 @@ function onUpdatePost()
     setProperty('scoreTxt.scale.x', 1)
     setProperty('scoreTxt.scale.y', 1)
 
-    -- Build and display "Misses:  X     Score:  Y"
-    local missText  = "Misses: " .. getProperty('songMisses')
-    local scoreText = "Score: "  .. getProperty('songScore')
-    local gap       = string.rep(" ", 10)
-    setTextString('scoreTxt', missText .. gap .. scoreText)
-
-    -- Display "Accuracy: XX.XX% - Grade"
+    -- Custom scoreTxt: "Accuracy: XX.XX% - S        Misses: X        Score: Y"
     local accPct = getProperty('ratingPercent') * 100
-    local grade  = 'D'
+    local grade = 'D'
     if accPct >= 90 then    grade = 'S'
     elseif accPct >= 80 then grade = 'A'
     elseif accPct >= 70 then grade = 'B'
     elseif accPct >= 60 then grade = 'C' 
     elseif accPct >= 50 then grade = 'D' end
 
-    setTextString('accuracyText',
-        string.format("Accuracy: %.2f%% - %s", accPct, grade)
-    )
+    local accStr   = string.format('Accuracy: %.2f%% - %s', accPct, grade)
+    local missStr  = 'Misses: ' .. getProperty('songMisses')
+    local scoreStr = 'Score: ' .. getProperty('songScore')
+
+    local gapL = '          '  -- adjust as needed!
+    local gapR = '          '
+    setTextString('scoreTxt', accStr .. gapL .. missStr .. gapR .. scoreStr)
 
     -- Ensure note pop-ups are visible if note RGB is disabled
     if getProperty("song.disableNoteRGB") then
@@ -259,7 +241,6 @@ function onUpdatePost()
         end
     end
 end
-
 
 -- =============================================================
 -- Helper: Update vignette alpha based on health
@@ -272,7 +253,6 @@ function updateVignetteAlpha()
     alpha = math.max(minAlpha, alpha)
     setProperty('vignette.alpha', alpha)
 end
-
 
 -- =============================================================
 -- onStepHit: Step-based events
@@ -288,11 +268,6 @@ function onStepHit()
         doTweenAlpha('healthBarOverlayFadeIn', 'healthBarOverlay', 1, 1, 'linear')
     end
 
-    -- Fade in Accuracy Text
-    if curStep == 512 then
-        doTweenAlpha('accuracyTextFadeIn', 'accuracyText', 0.3, 0.3, 'linear')
-    end
-
     -- Logo introduction at step 768
     if curStep == 768 then
         setProperty('logo.visible', true)
@@ -300,7 +275,6 @@ function onStepHit()
         local targetX = (screenWidth / 2) - (logoW / 2)
         doTweenX('logoIn', 'logo', targetX, logoTweenTime, 'sineInOut')
         runTimer('logoOutTimer', logoDisplayDur, 1)
-        doTweenAlpha('accuracyTextFadeIn', 'accuracyText', 1, 0.3, 'linear')
     end
 
     -- White flash and introduce Momento Peak + red overlay at step 1536
@@ -310,8 +284,6 @@ function onStepHit()
         addLuaSprite('whitebg')
         doTweenAlpha('whitebgFadeIn', 'whitebg', 0.9, 0.7, 'linear')
         addLuaSprite('momento peak')
-        setProperty('red thing.visible', true)
-        setProperty('red thing.alpha', 1)
     end
 
     -- End white flash and remove Momento Peak at step 1792
@@ -320,34 +292,29 @@ function onStepHit()
         setProperty('ShucksHook.visible',   true)
         setProperty('whitebg.alpha',        0)
         removeLuaSprite('momento peak')
-        setProperty('red thing.visible',    false)
-        setProperty('red thing.alpha', 0)
     end
 
     -- Fade out HUD elements at step 2560
     if curStep == 2560 then
         doTweenAlpha('healthBarOverlayFadeOut', 'healthBarOverlay', 0, 0.1, 'linear')
-        setProperty('accuracyText.alpha', 0)
     end
 
     -- At step 2765, show blood sprite and red overlay
     if curStep == 2765 then
         addLuaSprite('blood')
-        doTweenAlpha('bloodFadeIn',      'blood',    1, 1, 'linear')
+        doTweenAlpha('bloodFadeIn',      'blood',    0.6, 1, 'linear')
     end
 
-    -- Fade out accuracy, blood, and red overlays at step 3172
+    -- Fade out blood and red overlays at step 3172
     if curStep == 3172 then
-        doTweenAlpha('accuracyTextFadeOut', 'accuracyText', 0, 0.7, 'linear')
         doTweenAlpha('bloodFadeOut',          'blood',        0, 0.7, 'linear')
     end
 
     -- Change background and fade in shucktext at step 3456
     if curStep == 3456 then
         setProperty('camGame.bgColor', getColorFromHex('000000'))
-        setProperty('accuracyText.alpha', 1)
         doTweenAlpha('shucktextFadeIn', 'shucktext', 0.7, 0.5, 'linear')
-        doTweenAlpha('bloodFadeIn',      'blood',    1, 0.1, 'linear')
+        doTweenAlpha('bloodFadeIn',      'blood',    0.6, 0.1, 'linear')
     end
 
     -- Fade out shucktext at step 3480
@@ -355,24 +322,22 @@ function onStepHit()
         doTweenAlpha('shucktextFadeIn', 'shucktext', 0, 0.7, 'linear')
     end
 
-    -- Fade out chair sprites and accuracy text at step 3696
+    -- Fade out chair sprites at step 3696
     if curStep == 3696 then
-        doTweenAlpha('accuracyTextFadeOut', 'accuracyText', 0, 1, 'linear')
         doTweenAlpha('shuckchairbgFadeOut', 'shuckchairbg',       0.2, 0.5, 'linear')
         doTweenAlpha('shuckchairfgFadeOut', 'shuckchairfg',       0.2, 0.5, 'linear')
         doTweenAlpha('bloodFadeIn',      'blood',    0, 1, 'linear')
     end
 
-    -- Fade in chair sprites and accuracy text at step 3712
+    -- Fade in chair sprites at step 3712
     if curStep == 3712 then
-        doTweenAlpha('accuracyTextFadeIn',   'accuracyText',   1, 0.5, 'linear') 
-         doTweenAlpha('bloodFadeIn',      'blood',    1, 0.1, 'linear')
+        doTweenAlpha('bloodFadeIn',      'blood',    1, 0.1, 'linear')
         setProperty('shuckchairbg.alpha',    1)
         setProperty('shuckchairfg.alpha',    1)
     end
 
     if curStep == 4480 then
-        doTweenAlpha('accuracyTextFadeIn',   'accuracyText',   0, 2, 'linear') 
+        -- nothing for accuracyText
     end
 
     -- Fade in health bar overlay again at step 2816
@@ -383,14 +348,12 @@ function onStepHit()
     -- (Duplicated step 2816 tween removed; same as above)
 end
 
-
 -- =============================================================
 -- onSectionHit: Section-based camera zoom
 -- =============================================================
 function onSectionHit()
     triggerEvent('Add Camera Zoom', '0.04', '0.04')
 end
-
 
 -- =============================================================
 -- onBeatHit: Beat-based camera zoom behavior
@@ -406,7 +369,6 @@ function onBeatHit()
         triggerEvent('Add Camera Zoom', '0.06', '0.06')
     end
 end
-
 
 -- =============================================================
 -- onTimerCompleted: Timer event callbacks

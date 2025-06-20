@@ -1,50 +1,50 @@
 {
 	"animations": [
 		{
-			"offsets": [201, -117],
 			"loop": true,
-			"fps": 24,
+			"offsets": [201, -117],
 			"anim": "idle",
-			"indices": [],
-			"name": "idle"
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [181, -106],
-			"loop": false,
-			"fps": 12,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 12,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [190, -110],
-			"loop": false,
-			"fps": 12,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 12,
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [192, -114],
-			"loop": false,
-			"fps": 12,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 12,
+			"name": "up",
+			"indices": []
 		},
 		{
-			"offsets": [203, -111],
 			"loop": false,
-			"fps": 12,
+			"offsets": [203, -111],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 12,
+			"name": "left",
+			"indices": []
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": false,
 	"image": "characters/MarvinBleed",
-	"position": [80, 160],
+	"position": [120, 160],
 	"healthicon": "Marvin",
 	"flip_x": true,
 	"healthbar_colors": [255, 0, 0],

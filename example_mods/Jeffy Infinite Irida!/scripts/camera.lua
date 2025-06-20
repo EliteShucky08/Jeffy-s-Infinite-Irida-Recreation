@@ -23,10 +23,10 @@ local currentSection = nil
 local firstSection = false
 
 -- 🔄 VARIABLES NUEVAS
-local angleAmount = 1.6                -- inclinación de la cámara
+local angleAmount = 1.4                -- inclinación de la cámara
 local targetAngle = 0
 local targetCamY = 0
-local verticalCamIntensity = 0.6    -- 🔧 fuerza del movimiento vertical de cámara
+local verticalCamIntensity = 0.2    -- 🔧 fuerza del movimiento vertical de cámara
 local angleLerpSpeed = 0.02         -- 🔄 velocidad de interpolación de la inclinación, más suave
 
 function onCreatePost()

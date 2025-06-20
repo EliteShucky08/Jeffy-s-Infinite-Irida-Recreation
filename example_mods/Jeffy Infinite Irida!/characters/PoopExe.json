@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [380, -58],
+			"anim": "idle",
+			"fps": 24,
+			"name": "p idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [42, -60],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "p down",
+			"indices": [0, 0, 1, 2, 3, 4, 5, 6]
+		},
+		{
+			"loop": false,
+			"offsets": [89, -21],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "p up",
+			"indices": [0, 0, 1, 2, 3, 4, 5]
+		},
+		{
+			"offsets": [363, -48],
+			"indices": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+			"fps": 32,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "p left"
+		},
+		{
+			"offsets": [391, -46],
+			"indices": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+			"fps": 35,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "p right"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/Excretion/PoopExE",
+	"position": [-90, 70],
+	"healthicon": "poop",
+	"flip_x": false,
+	"healthbar_colors": [177, 109, 56],
+	"camera_position": [-360, 100],
+	"sing_duration": 6.1,
+	"scale": 0.9,
+	"_editor_isPlayer": false
+}

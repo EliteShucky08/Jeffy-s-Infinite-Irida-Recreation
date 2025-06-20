@@ -1,12 +1,12 @@
 {
 	"animations": [
 		{
-			"offsets": [34, -7],
 			"loop": false,
-			"fps": 27,
+			"offsets": [45, -27],
 			"anim": "idle",
-			"indices": [],
-			"name": "talk"
+			"fps": 27,
+			"name": "talk",
+			"indices": []
 		}
 	],
 	"vocals_file": "",

@@ -246,17 +246,16 @@ class MainMenuState extends MusicBeatState
                 selectedSomethin = true;
                 FlxG.mouse.visible = false;
 
-                // Red flash, then fade to black, then flicker then switch state
+                // Red flash, then fade to black, then flicker and zoom, then switch state
                 FlxG.camera.flash(0xFFFF0000, 0.5, function() {
                     FlxG.camera.fade(FlxColor.BLACK, 0.8, false, function() {
-                        switch (curColumn)
-                        {
-                            case CENTER:
-                                FlxFlicker.flicker(playText, 1, 0.06, false, false, function(_) {
+                        var flickerObj = curColumn == CENTER ? playText : rightItem;
+                        flickerAndZoom(flickerObj, function() {
+                            switch (curColumn)
+                            {
+                                case CENTER:
                                     MusicBeatState.switchState(new FreeplayState());
-                                });
-                            case RIGHT:
-                                FlxFlicker.flicker(rightItem, 1, 0.06, false, false, function(_) {
+                                case RIGHT:
                                     MusicBeatState.switchState(new OptionsState());
                                     OptionsState.onPlayState = false;
                                     if (PlayState.SONG != null)
@@ -265,14 +264,45 @@ class MainMenuState extends MusicBeatState
                                         PlayState.SONG.splashSkin = null;
                                         PlayState.stageUI = 'normal';
                                     }
-                                });
-                        }
+                            }
+                        });
                     });
                 });
             }
         }
 
         super.update(elapsed);
+    }
+
+    // Flicker (fade in/out repeatedly) and zoom in the camera, then call onDone
+    function flickerAndZoom(obj:FlxSprite, ?onDone:Void->Void)
+    {
+        var flickers:Int = 6;
+        var flickerTime:Float = 0.08;
+        var origAlpha:Float = obj.alpha;
+        var flickerIndex = 0;
+
+        // Zoom in camera
+        var zoomAmount = baseCamZoom + 0.27; // You can adjust this amount
+        FlxTween.cancelTweensOf(FlxG.camera);
+        FlxTween.tween(FlxG.camera, {zoom: zoomAmount}, flickerTime * flickers, {ease: FlxEase.cubeOut});
+
+        function stepFlicker()
+        {
+            if (flickerIndex >= flickers)
+            {
+                obj.alpha = origAlpha;
+                FlxTween.tween(FlxG.camera, {zoom: baseCamZoom}, 0.3, {ease: FlxEase.cubeIn});
+                if (onDone != null) onDone();
+                return;
+            }
+            flickerIndex++;
+            FlxTween.tween(obj, {alpha: obj.alpha == 1 ? 0.3 : 1}, flickerTime, {
+                ease: FlxEase.quadInOut,
+                onComplete: function(_) stepFlicker()
+            });
+        }
+        stepFlicker();
     }
 
     function changeItem()

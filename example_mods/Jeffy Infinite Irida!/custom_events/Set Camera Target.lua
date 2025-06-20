@@ -10,10 +10,10 @@ end
 function onEvent(eventName, value1, value2, strumTime)
     if eventName == 'Set Camera Target' then
         if value1 == '' then
-            -- Resets the camera's behaviour, making it lose its focus on the target
+            -- Resets everything to TRUE default: disables forced camera, reenables section camera movement
             setProperty('isCameraOnForcedPos', false)
             cancelTween('moveCamera')
-            runHaxeFunction('enableFollowPoint')
+            -- Do NOT set camFollow or call enableFollowPoint here, let the engine handle it!
         else
             -- This will force the camera to lock on target, despite 'mustHitSection'
             setProperty('isCameraOnForcedPos', true)
@@ -42,30 +42,26 @@ function onEvent(eventName, value1, value2, strumTime)
             end
 
             if value2 == '' then
-                -- Simply moves the camera to target like it does usually
                 runHaxeFunction('enableFollowPoint')
                 setProperty('camFollow.x', targetX)
                 setProperty('camFollow.y', targetY)
             else
                 local tweenData = stringSplit(value2, ',')
                 if tweenData[1] == '0' then
-                    -- Instantly places the camera to target
                     runHaxeFunction('enableFollowPoint')
                     setProperty('camFollow.x', targetX)
                     setProperty('camFollow.y', targetY)
                     runHaxeFunction('snapCameraToTarget')
                 else
-                    -- Moves the camera to target by using a tween
                     runHaxeFunction('disableFollowPoint')
                     setProperty('camFollow.x', targetX - screenWidth / 2)
                     setProperty('camFollow.y', targetY - screenHeight / 2)
-                    local tweenData = stringSplit(value2, ',')
                     local duration = stepCrochet * tonumber(tweenData[1]) / 1000
                     if tweenData[2] == nil then
                         tweenData[2] = 'linear'
                     end
                     if version == '1.0' then
-                        tweenNameAdd = 'tween_' -- Shadow Mario fucked it up.
+                        tweenNameAdd = 'tween_'
                     else
                         tweenNameAdd = ''
                     end

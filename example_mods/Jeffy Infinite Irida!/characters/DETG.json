@@ -1,71 +1,63 @@
 {
 	"animations": [
 		{
+			"offsets": [444, 8],
 			"loop": false,
-			"offsets": [376, 65],
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "LEFT",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [458, 526],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "UP",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [224, -39],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "RIGHT",
-			"indices": []
-		},
-		{
-			"offsets": [396, -223],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
 			"indices": [],
-			"name": "DOWN"
+			"name": "LEFT"
+		},
+		{
+			"offsets": [442, 589],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "UP"
+		},
+		{
+			"offsets": [236, -42],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "RIGHT"
 		},
 		{
 			"loop": false,
-			"offsets": [231, 138],
+			"offsets": [394, -214],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "DOWN",
+			"indices": []
+		},
+		{
+			"offsets": [206, 111],
+			"loop": false,
+			"fps": 24,
 			"anim": "What",
-			"fps": 24,
-			"name": "Bruh What",
-			"indices": []
+			"indices": [],
+			"name": "Bruh What"
 		},
 		{
-			"loop": true,
 			"offsets": [214, 110],
+			"loop": true,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "IDLE",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [230, 140],
-			"anim": "idle-alt",
-			"fps": 24,
-			"name": "Bruh What",
-			"indices": []
+			"indices": [],
+			"name": "IDLE"
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": false,
 	"image": "characters/DETG",
-	"position": [-80, 160],
+	"position": [-208, 78],
 	"healthicon": "DETG",
 	"flip_x": false,
 	"healthbar_colors": [232, 105, 34],
-	"camera_position": [-730, -380],
+	"camera_position": [-420, -170],
 	"sing_duration": 6.1,
-	"scale": 1,
+	"scale": 0.85,
 	"_editor_isPlayer": false
 }

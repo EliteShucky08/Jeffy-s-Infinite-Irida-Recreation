@@ -1,55 +1,55 @@
 {
 	"animations": [
 		{
-			"offsets": [741, -6],
-			"loop": false,
-			"fps": 12,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "DOWN"
-		},
-		{
+			"offsets": [-33, -280],
 			"loop": true,
-			"offsets": [736, 2],
+			"fps": 24,
 			"anim": "idle",
-			"fps": 8,
-			"name": "IDLE",
-			"indices": []
-		},
-		{
-			"offsets": [733, -1],
-			"loop": false,
-			"fps": 12,
-			"anim": "singLEFT",
 			"indices": [],
-			"name": "LEFT"
+			"name": "Idle"
 		},
 		{
-			"offsets": [723, 9],
+			"offsets": [-35, -289],
 			"loop": false,
-			"fps": 12,
+			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "RIGHT"
+			"name": "Right"
 		},
 		{
-			"offsets": [728, 1],
+			"offsets": [-25, -386],
 			"loop": false,
-			"fps": 12,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
+		},
+		{
+			"offsets": [-29, -190],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "UP"
+			"name": "Up"
+		},
+		{
+			"offsets": [33, -331],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left"
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": false,
-	"image": "characters/Marvin",
-	"position": [80, 160],
+	"image": "characters/Chained_Marvin",
+	"position": [130, 160],
 	"healthicon": "Marvin",
 	"flip_x": true,
 	"healthbar_colors": [255, 0, 0],
-	"camera_position": [369, 179],
+	"camera_position": [-21, 289],
 	"sing_duration": 6.1,
-	"scale": 0.6,
+	"scale": 0.9,
 	"_editor_isPlayer": true
 }

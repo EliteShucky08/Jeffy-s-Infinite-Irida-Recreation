@@ -59,6 +59,15 @@ function onStepHit()
     if curStep == 3187 and not faultVideo then
         faultVideo = startVideo('fault', true, true, false, true)
         if faultVideo then
+            -- Make arrows (strumLineNotes) appear in front of the video:
+            -- Get the order of strumLineNotes, set video just behind it
+            runHaxeCode([[
+                var vidName = "]] .. faultVideo.name .. [[";
+                if (game.modchartSprites.exists(vidName)) {
+                    game.modchartSprites.get(vidName).cameras = [game.camOther];
+                    game.setObjectOrder(vidName, game.getObjectOrder('strumLineNotes') - 1);
+                }
+            ]])
             faultVideo.finishCallback = function() faultVideo = nil end
         else
             debugPrint('Fault video not found! ('..Paths.video('fault')..')')
